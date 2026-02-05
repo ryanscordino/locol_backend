@@ -6,7 +6,11 @@ defmodule LocolBackendWeb.Router do
   end
 
   scope "/api", LocolBackendWeb do
-    pipe_through :api
+    pipe_through [:api, LocolBackendWeb.Plugs.Auth]
+
+    resources "/artists", ArtistController, except: [:new, :edit]
+    resources "/items", ItemController, except: [:new, :edit]
+    resources "/users", UserController, except: [:new, :edit]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

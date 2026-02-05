@@ -1,12 +1,5 @@
 import Config
 
-if config_env() == :dev do
-  # On vérifie si le fichier existe pour éviter une erreur
-  if File.exists?(".env") do
-    Dotenvy.source!(".env")
-  end
-end
-
 # Configure your database
 config :locol_backend, LocolBackend.Repo,
   username: "postgres",
@@ -16,8 +9,7 @@ config :locol_backend, LocolBackend.Repo,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10,
-  ssl: true,
-  ssl_opts: [verify: :verify_none],
+  ssl: [verify: :verify_none],
   socket_options: [:inet6]
 
 # For development, we disable any cache and enable

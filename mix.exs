@@ -52,7 +52,8 @@ defmodule LocolBackend.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
-      {:dotenvy, "~> 1.1.1", only: [:dev, :test]}
+      {:dotenvy, "~> 1.1.1", only: [:dev, :test]},
+      {:joken, "~> 2.6.2"}
     ]
   end
 
